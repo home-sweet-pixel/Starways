@@ -2,6 +2,8 @@
 
 <img title="screenshots of the program" src="./starways.jpg" alt="" width="1024">
 
+A gravity simulator for MS-DOS. You can play it in the browser on the [Internet Archive](https://archive.org/details/msdos_starways_shareware#).
+
 The description provided on [80.style](https://80.style/#/hsp/worthy_relics/starways) is reproduced here with minimal editing.
 
 ## What is it?
