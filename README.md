@@ -1,10 +1,11 @@
 # Starways
 
-<img src="https://80.style/image/hsp/h-worthy_relics-starways" width="1024">
+<img title="screenshots of the program" src="./starways.jpg" alt="" width="1024">
 
 The description provided on [80.style](https://80.style/#/hsp/worthy_relics/starways) is reproduced here with minimal editing.
 
 ## What is it?
+
   Starways is a gravitational simulator, geared towards an
   interactive approximation of the evolution of collisions
   between galaxies. It approximates the attracting mass of
@@ -12,7 +13,7 @@ The description provided on [80.style](https://80.style/#/hsp/worthy_relics/star
   presumably a black hole, plus the stars forming the core,
   then computes gravity from that point to all surrounding
   stars.
-  
+
   Star masses are ignored, allowing for fast, real-time,
   zoomable simulations. In case studies, star masses
   have proven almost uninfluential for the final result of
@@ -24,6 +25,7 @@ The description provided on [80.style](https://80.style/#/hsp/worthy_relics/star
   fine structures often do not matter that much.
 
 ## History
+
   Starways was created in 1997, written in Borland C++ 3.1
   for DOS (although calculations are highly optimized, and
   written in X387+ FPU assembly language), and in italian.
@@ -36,6 +38,7 @@ The description provided on [80.style](https://80.style/#/hsp/worthy_relics/star
   code still in italian).
 
 ## Source code
+
   The source code is included with
   the program's ZIP (starways.cpp being the "main" source,
   with assembly.h being a necessary header file). Starways
@@ -46,6 +49,7 @@ The description provided on [80.style](https://80.style/#/hsp/worthy_relics/star
   you have. But really, it might be sufficient.
 
 ## Features
+
   Starways can save and reload simulations (as files given
   the .SIM extension) and a few example files are included
   in the above archive. One additional feature of Starways
