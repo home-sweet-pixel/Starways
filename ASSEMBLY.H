@@ -234,19 +234,19 @@ vga_X376Y564 label word
   dw      564     ; height
 */
 
-/* Le seguenti tabelle sono una collezione di modalitÖ video
+/* Le seguenti tabelle sono una collezione di modalit√† video
    derivate dalla normale MCGA, altrimenti note come ModeX.
    Le tabelle sono pronte per essere passate alla funzione
    "tweakedVGA" per ottenere stili di visualizzazione diversi
    dallo standard MCGA, il quale sarebbe descritto come
-   "Chained NTSC screen: 320x200", ma che non ä incluso perchÇ
-   ä sufficiente aprire la normale modalitÖ MCGA per ottenerlo...
- - Una modalitÖ interessante ä la tabella "X320Y200C4YPAL",
+   "Chained NTSC screen: 320x200", ma che non √® incluso perch√©
+   √® sufficiente aprire la normale modalit√† MCGA per ottenerlo...
+ - Una modalit√† interessante √® la tabella "X320Y200C4YPAL",
    che corregge il fastidioso rapporto d'aspetto "allungato"
    dovuto all'incongruenza fra gli standard PAL (256 linee)
    ed NTSC (200 linee), che rende i pixels non del tutto quadrati.
- - Per le modalitÖ "unchained", bisogna procedere selezionando
-   le bit-planes su cui operare prima di disegnare quattro o pió
+ - Per le modalit√† "unchained", bisogna procedere selezionando
+   le bit-planes su cui operare prima di disegnare quattro o pi√π
    pixels consecutivi. E' opportuno quindi disegnare per colonne. */
 
 unsigned X320Y200C4NNTS[5] = { /* Unchained NTSC screen: 320x200 */
@@ -517,7 +517,7 @@ void _80_25_C () // modo grafico 80x25 testo a colori.
 	}
 }
 
-int attendi_pressione_tasto () // aspetta un tasto e dç qual'ä.
+int attendi_pressione_tasto () // aspetta un tasto e d√¨ qual'√®.
 {
 	unsigned char ritorno;
 
@@ -532,7 +532,7 @@ int attendi_pressione_tasto () // aspetta un tasto e dç qual'ä.
 	return (ritorno);
 }
 
-int tasto_premuto () // torna 1 se c'ä un tasto premuto da estrarre.
+int tasto_premuto () // torna 1 se c'√® un tasto premuto da estrarre.
 {
 	asm {
 		push ax
@@ -774,11 +774,11 @@ int lstri (char *stri) // misura una stringa e la copia su temptesto.
 	mpul  = pulsanti premuti
 		(0 = nessuno, 1 = sinistro, 2 = destro, 3 = entrambi)
 		(mpul dev'essere azzerata prima di chiamare "mouse_input"
-		se ä necessario che la variabile non "ricordi" l'ultima
-		lettura del mouse, perchÇ a volte questo fatto serve)
-	mx;my = posizione attuale del cursore: di per sÇ non ha limiti
+		se √® necessario che la variabile non "ricordi" l'ultima
+		lettura del mouse, perch√© a volte questo fatto serve)
+	mx;my = posizione attuale del cursore: di per s√© non ha limiti
 		e per cui, se la si vuole limitare, lo si deve fare
-		dal programma principale. ä espressa in mickeys.
+		dal programma principale. √® espressa in mickeys.
 		(mx, my, mdltx ed mdlty possono anche assumere valori
 		negativi, e sono dichiarate come interi a 16 bit) */
 
@@ -1083,16 +1083,16 @@ ac_endl:  asm { pop di
 	Occhio al trucco: normalmente ci sarebbero 16 addizioni e una
 	divisione (per 16) da fare, per ogni punto.
 	Col trucco, invece, bastano quattro addizioni a 32 bit,
-	altre quattro a 8 bit, pió un paio di shifts ed un and logico su edx.
+	altre quattro a 8 bit, pi√π un paio di shifts ed un and logico su edx.
 
 	Normale: 16 + 42 = 58 cicli.
 	Truccato: 8 + 4 = 12 cicli.
 
 	Piuttosto ovvio: la tavola dei colori dev'essere una sfumatura unica
 	e compatta, da far rientrare nei primi 64 registri del video DAC;
-	il colore zero ä il pió tenue, il 63 quello pió brillante.
+	il colore zero √® il pi√π tenue, il 63 quello pi√π brillante.
 
-	Nota: la procedura puï essere reiterata per ottenere
+	Nota: la procedura pu√≤ essere reiterata per ottenere
 	      una maggiore attenuazione.
 
 */
@@ -1135,21 +1135,21 @@ smooth: asm {	db 0x66; mov dx, es:[di-320]
 /*
 
 	Versione a colori della precedente: 64 livelli in 4 sfumature.
-	I primi 2 bits (pió significativi) di ogni punto video selezionano
-	il colore da usare, mentre gli altri 6 l'intensitÖ della tinta.
-	Puï essere anche usata con la sfumatura dei primi 64 colori
-	come "psmooth_grays", ma in genere ä pió leggera di quest'ultima,
-	in quanto la media ä applicata su cella 2 x 2.
-	Ah, non si puï fare su adaptor, cosç com'ä: il segmento deve avere
+	I primi 2 bits (pi√π significativi) di ogni punto video selezionano
+	il colore da usare, mentre gli altri 6 l'intensit√† della tinta.
+	Pu√≤ essere anche usata con la sfumatura dei primi 64 colori
+	come "psmooth_grays", ma in genere √® pi√π leggera di quest'ultima,
+	in quanto la media √® applicata su cella 2 x 2.
+	Ah, non si pu√≤ fare su adaptor, cos√¨ com'√®: il segmento deve avere
 	offset pari a 4, come quelli di tipo far o huge allocati dal c.
 
-	Il segshift serve per spostare di qualche paragrafo pió avanti la
+	Il segshift serve per spostare di qualche paragrafo pi√π avanti la
 	zona su cui operare, ed assieme alla normale variabile QUADWORDS
-	puï definire con precisione l'area ove operare.
+	pu√≤ definire con precisione l'area ove operare.
 
-	Una cosa interessante: per aumentare la velocitÖ ho fatto il ciclo
+	Una cosa interessante: per aumentare la velocit√† ho fatto il ciclo
 	al contrario, ma mi sono dimenticato di correggere l'eleborazione
-	della media. Se si vuole correggere perchÇ sia normale, basta
+	della media. Se si vuole correggere perch√© sia normale, basta
 	aumentare incondizionatamente il segshift nella prima parte della
 	funzione con l'istruzione "add segshift, 20" e poi mettere al posto
 	dell'istruzione:
@@ -1160,7 +1160,7 @@ smooth: asm {	db 0x66; mov dx, es:[di-320]
 
 		mov bx, [di-324].
 
-	PerchÇ non l'ho fatto? PerchÇ cosç due punti su quattro, per ogni
+	Perch√© non l'ho fatto? Perch√© cos√¨ due punti su quattro, per ogni
 	ciclo, subiscono una doppia media (1 x 2 + 2 x 2), lasciando un
 	suggestivo "effetto aura".
 
@@ -1313,23 +1313,23 @@ unsigned char far *psp ()
 }
 
 /* Ritorna lo stato completo della tastiera: tasto in ingresso, esteso o
-   normale (ingresso anche asincrono), pió il byte di stato per i tasti
+   normale (ingresso anche asincrono), pi√π il byte di stato per i tasti
    di controllo dislocato a ctrlkeys[0].
    La funzione azzera anche qualsiasi altro tentativo d'intercettare i tasti,
-   perchÇ svuota il buffer di tastiera.
-   Lo scancode hardware tradotto ä relativo al tasto che SI STA PREMENDO.
-   Tuttavia, questa funzione non permette di eliminare l'ottusitÖ nel bios
+   perch√© svuota il buffer di tastiera.
+   Lo scancode hardware tradotto √® relativo al tasto che SI STA PREMENDO.
+   Tuttavia, questa funzione non permette di eliminare l'ottusit√† nel bios
    di non consentire la ripresa dei tasti quando non sono rilasciati:
    ad esempio, se si preme left cr e, tenendolo premuto, si preme up cr,
-   si otterrÖ immediatamente la registrazione del tasto up cr ma, quando si
-   rilascierÖ solo up cr, non si potrÖ ottenere di nuovo la registrazione
-   della pressione di left cr se prima non si rilascerÖ anche questo.
+   si otterr√† immediatamente la registrazione del tasto up cr ma, quando si
+   rilascier√† solo up cr, non si potr√† ottenere di nuovo la registrazione
+   della pressione di left cr se prima non si rilascer√† anche questo.
    Se, per esempio ad un platform, serve anche la ripresa di questi tasti,
-   si dovrÖ intercettare l'int 9 generata dal microprocessorino della
+   si dovr√† intercettare l'int 9 generata dal microprocessorino della
    tastiera, ovvero l'i8084, per rimpiazzare l'interrupt bios che infila
    i tasti nel buffer di tastiera. Purtroppo, questo comporta che il bios
-   non tradurrÖ gli scancode hardware, che continueranno ad esser tali
-   e dovranno essere opportunamente interpretati (non saranno pió gli ascii
+   non tradurr√† gli scancode hardware, che continueranno ad esser tali
+   e dovranno essere opportunamente interpretati (non saranno pi√π gli ascii
    normali o estesi, in soldoni). Di questo, comunque, si occupano le
    funzioni seguenti a questa. */
 
@@ -1370,7 +1370,7 @@ void stato_tastiera ()
 	}
 }
 
-// Non ä una funzione: non chiamare, ä solo un buffer sul segmento di codice.
+// Non √® una funzione: non chiamare, √® solo un buffer sul segmento di codice.
 
 void key_status_marker ()
 {
@@ -1531,7 +1531,7 @@ release:asm {
 _ret:
 }
 
-// Indica se il tasto "SCANCODE" ä attualmente ABBASSATO.
+// Indica se il tasto "SCANCODE" √® attualmente ABBASSATO.
 
 char keyhold (unsigned scancode)
 {

@@ -4,20 +4,20 @@
 	Evoluzione di un antico (e dico antico) algoritmo in GW-Basic,
 	divenuto famoso ma scritto non-so-da-chi.
 	A parte l'idea, comunque, StarWays non ha nulla di quell'algoritmo,
-	neanche il nucleo di calcolo, che qui ä ottimizzato e tradotto in
+	neanche il nucleo di calcolo, che qui √® ottimizzato e tradotto in
 	assembly per la fpu.
 
-	Il concetto ä lo stesso, ma StarWays ä un'altra cosa.
+	Il concetto √® lo stesso, ma StarWays √® un'altra cosa.
 	Su "la vetrina del software" di Nuovo Orione, recensirono entusiasti
 	il programma in basic suo avo ancestrale, ed io ho scritto StarWays
-	per farmi pubblicitÖ ed ammaliare i recensori di Nuovo Orione:
+	per farmi pubblicit√† ed ammaliare i recensori di Nuovo Orione:
 	se si sono divertiti con il Basic, figuriamoci come accetteranno
-	StarWays; oltre a questo, perï, c'ä stato il mio interesse personale
+	StarWays; oltre a questo, per√≤, c'√® stato il mio interesse personale
 	nel voler avere, per primo, un "giocattolo tecnologico" come questo.
 
-	Studiato come pubblico dominio, anche perchÇ non mi ha impegnato
-	poi molto, calcoliamo una settimanetta. Perï forse conviene
-	registrarlo, perchÇ... hai visto mai? Se piacesse molto, lo potrei
+	Studiato come pubblico dominio, anche perch√© non mi ha impegnato
+	poi molto, calcoliamo una settimanetta. Per√≤ forse conviene
+	registrarlo, perch√©... hai visto mai? Se piacesse molto, lo potrei
 	triplicare a livello di funzioni e di sofisticatezza, per poi
 	rilasciare una versione commerciale. Oh, yeah. Non male.
 
@@ -89,7 +89,7 @@ const double MIL = 3.1536e+13;   // Secondi in un milione di anni.
 double single_step = MIL;        /* Secondi tra un fotogramma e l'altro.
 				    (Default un milione di anni). */
 
-const double C = 2.99574e+5;	 // VelocitÖ della luce in km/sec.
+const double C = 2.99574e+5;	 // Velocit√† della luce in km/sec.
 
 const double G = 6.67e-11;	 // Costante di gravitazione universale.
 
@@ -98,36 +98,36 @@ const double A = 9.4608e+15;	 // 1 anno-luce espresso in metri.
 const double M = 1.9701e+30;     // 1 massa solare espressa in kg.
 
 double S = 1000 * single_step;   /* Migliaia di secondi reali in un passo
-				    d'animazione. Dividendo le velocitÖ
+				    d'animazione. Dividendo le velocit√†
 				    effettive (espresse in Metri per Step,
 				    che divisi per 1000 danno i Km per Step,
 				    che divisi ancora per single_step danno
 				    il risultato finale) per questo valore,
 				    si ottiene il corrispondente valore
 				    espresso in Km/Sec, ovvero in una scala
-				    pió facilmente comprensibile.
-				    PerchÇ "al secondo"? In effetti, il
+				    pi√π facilmente comprensibile.
+				    Perch√© "al secondo"? In effetti, il
 				    valore realmente visibile dipende da
 				    quanti steps di calcolo vengono svolti
 				    in un secondo reale: questo numero (pcs)
-				    ä visualizzato dal programma di continuo,
-				    percui ci se ne puï fare un'idea.
+				    √® visualizzato dal programma di continuo,
+				    percui ci se ne pu√≤ fare un'idea.
 				    D'altronde, per poter studiare il moto
-				    stellare si deve leggere la velocitÖ che
+				    stellare si deve leggere la velocit√† che
 				    avrebbero le stelle in una situazione
 				    reale: l'accelerazione del tempo nella
-				    simulazione serve solo per comoditÖ.
+				    simulazione serve solo per comodit√†.
 				    E` poco comprensibile e poco pratico
 				    far avanzare la simulazione esattamente
 				    ad un fotogramma (o step) al secondo,
 				    mentre suddividere single_step in
 				    fammenti dati da quanti fotogrammi
 				    vengono visualizzati in un secondo non
-				    ä affidabile (perchÇ il timer interno
-				    ä piuttosto impreciso e perchÇ in effetti
+				    √® affidabile (perch√© il timer interno
+				    √® piuttosto impreciso e perch√© in effetti
 				    il valore di pcs dipende dalle condizioni
 				    nelle quali si assiste alla simulazione.
-				    Pió stelle sullo schermo rallenteranno
+				    Pi√π stelle sullo schermo rallenteranno
 				    tutto, al pari dell'attivazione di una
 				    delle tre funzioni di inseguimento. */
 
@@ -147,7 +147,7 @@ double   s[M_GAL] = {  5E8,   1E8 }; /* Massa dell'attrattore centrale.
 int      trgt[M_GAL] = { 0, 0 }; // Eventuale bersaglio.
 double   ashf[M_GAL] = { 0, 0 }; // Alfa-Shift (correzione su declinazione).
 double   bshf[M_GAL] = { 0, 0 }; // Beta-Shift (correzione su ascensione retta).
-double   vlct[M_GAL] = { 0, 50*S }; // VelocitÖ del nucleo verso il bersaglio. (2500*S x save me).
+double   vlct[M_GAL] = { 0, 50*S }; // Velocit√† del nucleo verso il bersaglio. (2500*S x save me).
 
 double   incl[M_GAL] = { 0, 0 }; // inclinazione della galassia.
 double   tilt[M_GAL] = { 0, 0 }; // rotazione della galassia sul suo asse.
@@ -158,7 +158,7 @@ double gx[M_GAL]  = { 0 * A, 2E4 * A }, // 2nd: 0 x save me.
        gz[M_GAL]  = { 0 * A, 0 * A }; // Posizione (iniziale).
 double gvx[M_GAL] = { 0 * A },
        gvy[M_GAL] = { 0 * A },
-       gvz[M_GAL] = { 0 * A }; // VelocitÖ proiettata sugli assi X, Y, Z.
+       gvz[M_GAL] = { 0 * A }; // Velocit√† proiettata sugli assi X, Y, Z.
 double bgx[M_GAL] = { 0 * A, 2E4 * A },
        bgy[M_GAL] = { 0 * A, 1E5 * A },
        bgz[M_GAL] = { 0 * A, 0 * A }; // Copia di backup delle posizioni.
@@ -168,7 +168,7 @@ double bgx[M_GAL] = { 0 * A, 2E4 * A },
 
 float  far *m;	 	  // Massa (0.1 - 1000) espressa  in masse solari.
 double far *x,  *y,  *z;  // Posizione (coordinate tre-d) in anni-luce.
-double far *vx, *vy, *vz; // VelocitÖ (componenti tre-d)  in anni-luce / step.
+double far *vx, *vy, *vz; // Velocit√† (componenti tre-d)  in anni-luce / step.
 
 // Variabili di ottimizzazione (per i cicli assembly di calcolo).
 
@@ -198,22 +198,22 @@ double _alfa, _beta;	    // Angolazione salvata in un backup.
 double delta_pcam = 0;      // Accelerazione dell'osservatore.
 
 double ob = 300; /* Obiettivo usato, o distanza dal piano di proiezione.
-		    - A valori pió piccoli corrispondono "grandangolari".
-		    - A valori pió grandi corrispondono "teleobiettivi".
+		    - A valori pi√π piccoli corrispondono "grandangolari".
+		    - A valori pi√π grandi corrispondono "teleobiettivi".
 		    - Al valore "300" corrisponde un normale 50 mm. */
 
 double min_dist = ob * A; // Distanza normale minima di una stella visibile.
 
 double cosbeta, sinbeta; // Variabili temporanee di ottimizzazione.
-double cosalfa, sinalfa; // XchÇ le funzioni trigonometriche sono tartarughe.
+double cosalfa, sinalfa; // Xch√© le funzioni trigonometriche sono tartarughe.
 
-double cosbeta_x_ob, sinbeta_x_ob; // Come sopra giÖ moltiplicate per la
-double cosalfa_x_ob, sinalfa_x_ob; // distanza dal piano di proiezione. OlÇ.
+double cosbeta_x_ob, sinbeta_x_ob; // Come sopra gi√† moltiplicate per la
+double cosalfa_x_ob, sinalfa_x_ob; // distanza dal piano di proiezione. Ol√©.
 
-unsigned anchor = 1639; /* Indice della stella alla quale si ä ancorati.
+unsigned anchor = 1639; /* Indice della stella alla quale si √® ancorati.
 			   -1, ovvero 65535, significa NON ANCORATI. */
 
-char follow = 2; /* ModalitÖ di inseguimento del moto: 0 = nessuna,
+char follow = 2; /* Modalit√† di inseguimento del moto: 0 = nessuna,
 		    +1 = inquadratura a prua, -1 = inquadratura a poppa,
 		    +2 = inseguimento del nucleo galattico. */
 
@@ -221,10 +221,10 @@ double see_x; /* Coordinate del punto da inquadrare. Funzione "watch". */
 double see_y;
 double see_z;
 
-double cam_vel    = 0; // VelocitÖ attuale dell'osservatore.
-double delta_xpos = 0; // Componente x della velocitÖ.
-double delta_ypos = 0; // Componente y della velocitÖ.
-double delta_zpos = 0; // Componente z della velocitÖ.
+double cam_vel    = 0; // Velocit√† attuale dell'osservatore.
+double delta_xpos = 0; // Componente x della velocit√†.
+double delta_ypos = 0; // Componente y della velocit√†.
+double delta_zpos = 0; // Componente z della velocit√†.
 double rif_x	  = 0; // Componente x di riferimento.
 double rif_y	  = 0; // Componente y di riferimento.
 double rif_z	  = 0; // Componente z di riferimento.
@@ -233,15 +233,15 @@ char   wait       = 0; // Segnale per la sospensione della simulazione.
 
 char   help       = 0; // Segnale della presenza delle istruzioni on-line.
 
-char   started	  = 1; // Segnale: la simulazione iniziale non ä modificata.
+char   started	  = 1; // Segnale: la simulazione iniziale non √® modificata.
 
-char   starting   = 1; // Segnale: la simulazione iniziale ä iniziata.
+char   starting   = 1; // Segnale: la simulazione iniziale √® iniziata.
 
 char   grid       = 0; // Segnale: visualizzare la griglia 3d?
 
 char   glow	  = 0; // Segnale: visualizzazione in VESA?
 
-char   hylit	  = 0; // Segnale: VESA in alta luminositÖ con i "trails"?
+char   hylit	  = 0; // Segnale: VESA in alta luminosit√† con i "trails"?
 
 /* Variabili globali specifiche. */
 
@@ -265,7 +265,7 @@ char	      ccd_settings = 0; // Impostazioni preparatorie immagini CCD.
 char	      ccdpar = 0; // Parametro del CCD da modificare.
 char	      lens = 0; // Impostazioni della videocamera: obiettivo.
 char	      gas = 0; /* Non Grandi Avventure Sanitarie (torna), e neanche
-			  Grandi Avventure A Fumetti (non torna), bensç
+			  Grandi Avventure A Fumetti (non torna), bens√¨
 			  Gestione Archivio Simulazioni: flag-bolla. */
 
 char	      input[18], ic = 0; // Stringa valori d'ingresso e suo contatore.
@@ -297,8 +297,8 @@ char	      tx[107]; // Buffer testuale general-purpose.
 /* Dati per tracciare le selle semplici. */
 
 double _m, _x, _y, _z, one = 1; // Variabili di passaggio.
-				// "one" ä praticamente una costante,
-				// ma come variabile funziona pió velocemente.
+				// "one" √® praticamente una costante,
+				// ma come variabile funziona pi√π velocemente.
 
 double size_a = 0.1;
 double size_b = 0.3;
@@ -317,8 +317,8 @@ unsigned cr_sp_page;   // pagina in "desperation".
 
 char gws[6595];        // Immagini-base delle glowin' stars: "glowstar.pic"
 
-double size_g0 = 0.02; // Limite inferiore profonditÖ.
-double size_g1 = 12;   // Limite superiore profonditÖ.
+double size_g0 = 0.02; // Limite inferiore profondit√†.
+double size_g1 = 12;   // Limite superiore profondit√†.
 
 /* Dati per le stelle CCD. */
 
@@ -340,12 +340,12 @@ unsigned char font[65*6] = {
  0, 20, 62, 20, 62, 20, // Cancelletto.
 28, 40, 28, 10, 28,  8, // Dollaro.
 36,  4,  8,  8, 16, 18, // Percento.
-62, 62, 62, 62, 62, 62, // E commerciale (non c'ä: al suo posto c'ä un blocco di colore che uso come cursore).
+62, 62, 62, 62, 62, 62, // E commerciale (non c'√®: al suo posto c'√® un blocco di colore che uso come cursore).
  4,  8,  0,  0,  0,  0, // Apice.
  4,  8,  8,  8,  8,  4, // Parentesi tonda aperta.
 16,  8,  8,  8,  8, 16, // Parentesi tonda chiusa.
 40, 16, 40,  0,  0,  0, // Asterisco.
- 8,  8, 62,  8,  8,  0, // Pió.
+ 8,  8, 62,  8,  8,  0, // Pi√π.
  0,  0,  0,  0,  4,  8, // Virgola.
  0,  0, 62,  0,  0,  0, // Meno.
  0,  0,  0,  0,  0,  8, // Punto.
@@ -394,9 +394,9 @@ unsigned char font[65*6] = {
 34, 34, 20,  8,  8,  8, // Y.
 62,  2,  4,  8, 16, 62, // Z.
  0,  0,  0,  0,  0,  0, // Parentesi quadra aperta (manca).
- 7,  5,  7,  0,  0,  0, // Barra rovescia (ä lo zerino).
+ 7,  5,  7,  0,  0,  0, // Barra rovescia (√® lo zerino).
  0,  0,  0,  0,  0,  0, // Parentesi quadra chiusa (manca).
-14,  2,  4,  7,  0,  0, // Ordinale femminile (ä l'esponente 2).
+14,  2,  4,  7,  0,  0, // Ordinale femminile (√® l'esponente 2).
  0,  0,  0,  0,  0, 63, // Sottolinea.
  8,  4,  0,  0,  0,  0  // Accento.
 };
@@ -423,9 +423,9 @@ unsigned long screenlength;
 unsigned long screenheight;
 
 void initvesa (char pixels_on_line)
-	/* Apre la modalitÖ vesa indicata con "pixels_on_line":
+	/* Apre la modalit√† vesa indicata con "pixels_on_line":
 	   un valore che, preceduto da un sottolinea per definizione,
-	   indica da quanti pixels ä composta ogni riga sullo schermo. */
+	   indica da quanti pixels √® composta ogni riga sullo schermo. */
 	/* I valori validi sono: _1024 che corrisponde a 1024x768;
 				 _640  che corrisponde a 640x480. */
 {
@@ -521,7 +521,7 @@ void simwait ()
 	while (tasto_premuto()) attendi_pressione_tasto();
 }
 
-/* Funzioni di utilitÖ grafica. */
+/* Funzioni di utilit√† grafica. */
 
 double   rx, ry, rz, z2, z2d; // Variabili di conversione 3d-2d.
 int      x2d, y2d;	      // Coordinate convertite in 2d.
@@ -578,10 +578,10 @@ void Stick (unsigned long x, unsigned long y,
 
 			Tutte le operazioni precedute dal prefisso 0x66
 			vanno considerate con operandi di dimensioni doppie.
-			Difatti, poichÇ l'assemblatore in-line non supporta
-			i registri a 32 bit, ä necessario aggiungere i
+			Difatti, poich√© l'assemblatore in-line non supporta
+			i registri a 32 bit, √® necessario aggiungere i
 			prefissi d'estensione manualmente.
-			Cosç facendo, i puntatori di tipo word (word ptr)
+			Cos√¨ facendo, i puntatori di tipo word (word ptr)
 			vanno considerati come dword ptr, mentre i registri
 			sono tutti estesi (per esempio, ax diventa eax).
 
@@ -676,8 +676,8 @@ void stick3d (double p_x, double p_y, double p_z,
 	lx = p_rx / p_rz; ly = p_ry / p_rz;
 
 	/* Ottimizza il tracciamento del "Segmento", tagliando via le parti
-	   che di sicuro non si vedono. Questa parte non ä efficace se
-	   i punti di partenza e di arrivo fanno sç che il segmento non
+	   che di sicuro non si vedono. Questa parte non √® efficace se
+	   i punti di partenza e di arrivo fanno s√¨ che il segmento non
 	   intersechi alcun lato dell'area visibile: ma in questo peculiare
 	   caso le linee vengono escluse dai controlli successivi. */
 
@@ -760,13 +760,13 @@ void stick3d (double p_x, double p_y, double p_z,
    La funzione, altamente specifica, assolutamente inesportabile,
    usa la pagina nascosta ADAPTED, ed alcune variabili devono essere
    precaricate: shift (=y*80) ed x2d, ovvero x.
-   Oltretutto, ä necessario caricare shift con un valore pió grande del
-   necessario di 4 unitÖ: perchÇ questo ä l'allineamento fisso di adapted.
-   Ma c'ä ancora qualcosa: in es si deve precaricare il valore seg_adapted. */
+   Oltretutto, √® necessario caricare shift con un valore pi√π grande del
+   necessario di 4 unit√†: perch√© questo √® l'allineamento fisso di adapted.
+   Ma c'√® ancora qualcosa: in es si deve precaricare il valore seg_adapted. */
 
 void plot ()
 {
-	asm {	mov bx, x2d // istruz. sfalsate per motivi di accoppiabilitÖ
+	asm {	mov bx, x2d // istruz. sfalsate per motivi di accoppiabilit√†
 		mov cx, x2d
 		shr bx, 3
 		and cl, 7
@@ -777,10 +777,10 @@ void plot ()
 }
 
 /* Scrive una stringa sul video, in caratteri di piccola dimensione ma
-   altamente leggibili perchÇ intensi ed essenziali: ne vado fiero.
-   Oltretutto, pur usando un bitmapped font, ä discretamente rapida
-   (probabilmente molto pió veloce delle funzioni rom) perchÇ il suo
-   nucleo ä stato ottimizzato pió volte.
+   altamente leggibili perch√© intensi ed essenziali: ne vado fiero.
+   Oltretutto, pur usando un bitmapped font, √® discretamente rapida
+   (probabilmente molto pi√π veloce delle funzioni rom) perch√© il suo
+   nucleo √® stato ottimizzato pi√π volte.
    Non credo le rimanga molto da ottimizzare. */
 
 void Testo (int x, int y, char *messaggio, unsigned stile)
@@ -937,21 +937,21 @@ char conv (double x, double y, double z)
 }
 
 /* Orienta la videocamera verso il punto (see_x; see_y; see_z).
-   Come implementazione ä penosa: se c'ä una cosa che potrï migliorare,
-   forse, sarÖ questa funzione. Dunque: non ho trovata traccia di alcuna
+   Come implementazione √® penosa: se c'√® una cosa che potr√≤ migliorare,
+   forse, sar√† questa funzione. Dunque: non ho trovata traccia di alcuna
    funzione matematica che permetta di trovare l'angolazione giusta in base
-   alle coordinate e perciï ho dovuto cercare il punto giusto facendo
+   alle coordinate e perci√≤ ho dovuto cercare il punto giusto facendo
    scandire l'angolo giro per entrambi gli angoli.
-   Ma i risultati sono a dir poco deludenti: innanzi tutto la funzione ä
-   lenta (dovendo scandire tutti i 360¯ per due angoli, anche se in modo
-   frattale, non puï essere altrimenti), e poi non inquadra sempre in modo
+   Ma i risultati sono a dir poco deludenti: innanzi tutto la funzione √®
+   lenta (dovendo scandire tutti i 360¬∞ per due angoli, anche se in modo
+   frattale, non pu√≤ essere altrimenti), e poi non inquadra sempre in modo
    perfetto. Sperimentalmente, ho visto che la si deve chiamare almeno
    due volte di seguito per esser certi che il punto venga inquadrato.
 
    Ho trovato la funzione atan (arcotangente), ma non so se riscrivere
    watch() in modo che la usi.
 
-   Un po' perchÇ non ne ho voglia, e poi ä una funzione limitata, che
+   Un po' perch√© non ne ho voglia, e poi √® una funzione limitata, che
    potrebbe dare dei problemi di dominio. */
 
 void watch ()
@@ -1260,7 +1260,7 @@ void g_forces ()
 			jmp glx_lp }
 stars_end: }
 
-	if (g>1) { // se vi ä pió d'una galassia...
+	if (g>1) { // se vi √® pi√π d'una galassia...
 	  for (aux=0; aux<g; aux++) { // ...tutte quante interagiscono...
 		  for (pan=0; pan<g; pan++) { // ...con tutte le altre...
 			if (aux!=pan) { // ...(tranne che con se stesse)
@@ -1356,7 +1356,7 @@ void render ()
 			fmul cosalfa // Rotazione su asse X.
 			fld _y
 			fmul sinalfa
-			faddp        // sullo stack c'ä ora rz.
+			faddp        // sullo stack c'√® ora rz.
 			fcom min_dist
 			fstsw ax
 			sahf
@@ -1364,7 +1364,7 @@ void render ()
 			ffree st(0)
 			jmp useless } // Il punto non si vede (rz < min_dist): inutile continuare.
 
-	after:  asm {   fld one // fld1 ä pió lenta (caso a 64 bit) di un ciclo.
+	after:  asm {   fld one // fld1 √® pi√π lenta (caso a 64 bit) di un ciclo.
 			fdivrp
 			fstp rz } // rz = 1 / rz: si moltiplica per dividere: + veloce.
 
@@ -1409,7 +1409,7 @@ void render ()
 
 		// Tracciamento (differenziato, a seconda di distanza e massa).
 
-		// z2d = m * ob / rz; (PoichÇ le masse sono premoltiplicate, m / rz).
+		// z2d = m * ob / rz; (Poich√© le masse sono premoltiplicate, m / rz).
 
 	xbelow:	asm {   mov x2d, ax
 			mov es, seg_m
@@ -1585,7 +1585,7 @@ void glowin_render ()
 			fmul cosalfa // Rotazione su asse X.
 			fld _y
 			fmul sinalfa
-			faddp        // sullo stack c'ä ora rz.
+			faddp        // sullo stack c'√® ora rz.
 			fcom min_dist
 			fstsw ax
 			sahf
@@ -1593,7 +1593,7 @@ void glowin_render ()
 			ffree st(0)
 			jmp useless } // Il punto non si vede (rz < min_dist): inutile continuare.
 
-	after:  asm {   fld one // fld1 ä pió lenta (caso a 64 bit) di un ciclo.
+	after:  asm {   fld one // fld1 √® pi√π lenta (caso a 64 bit) di un ciclo.
 			fdivrp
 			fstp rz } // rz = 1 / rz: si moltiplica per dividere: + veloce.
 
@@ -1655,7 +1655,7 @@ void glowin_render ()
 			fld size_g1 }
 
 	/* Traccia la stella in modo glowin', ovvero come un piccolo
-	   diamante luminoso la cui sagoma ä contenuta nel buffer "gws". */
+	   diamante luminoso la cui sagoma √® contenuta nel buffer "gws". */
 
 	min_g1: asm {   fistp pict_w
 			mov si, pict_w
@@ -1762,7 +1762,7 @@ ridef:  asm {
 	}
 }
 
-/* Disegna una stellina per la modalitÖ CCD. */
+/* Disegna una stellina per la modalit√† CCD. */
 
 void ccd_star ()
 {
@@ -1971,7 +1971,7 @@ after:  asm {
 
 /* Produce uno schermo simile a quello che si potrebbe ottenere con un CCD.
    I parametri per la funzione di tracciamento stelle sono:
-	mag_factor ... sfocatura immagine (0 = a fuoco): per default ä 3;
+	mag_factor ... sfocatura immagine (0 = a fuoco): per default √® 3;
 	exposure ..... tempo esposizione in minuti: solitamente da 3 a 6. */
 
 void ccd_image ()
@@ -2053,8 +2053,8 @@ neq:    asm {   mov al, bl
 	}
 }
 
-/* Tenta di ancorare l'osservatore alla stella inquadrata pió vicina
-   e pió centrale sullo schermo. Dico "tenta" perchÇ non ä detto che ci siano
+/* Tenta di ancorare l'osservatore alla stella inquadrata pi√π vicina
+   e pi√π centrale sullo schermo. Dico "tenta" perch√© non √® detto che ci siano
    per forza stelle inquadrate nel mirino. */
 
 void join ()
@@ -2084,7 +2084,7 @@ void join ()
 		}
 }
 
-/* Calcola le velocitÖ per le galassie destinate allo scontro,
+/* Calcola le velocit√† per le galassie destinate allo scontro,
    e ripristina le posizioni specificate per l'inizio della simulazione. */
 
 void thrower ()
@@ -3697,7 +3697,7 @@ void main ()
 			Stick (340, 220, 300, 260);
 		}
 
-		// Opzioni menó principale (sensibili al contesto).
+		// Opzioni men√π principale (sensibili al contesto).
 
 		strcpy (escfunc, "E|S|C| @ END SESSION.");
 		if (msg||ccd_settings||lens||gas) strcpy (escfunc, "E|S|C| @ PROGRESSIVELY CLOSES INTERFACE'S BUBBLES.");
@@ -4431,7 +4431,7 @@ void main ()
 
 		if (g>1) {
 			spx = 250;
-			for (pan = 0; pan < g; pan++) { // Controllo velocitÖ luminale.
+			for (pan = 0; pan < g; pan++) { // Controllo velocit√† luminale.
 				w  = gvx[pan]*gvx[pan];
 				w += gvy[pan]*gvy[pan];
 				w += gvz[pan]*gvz[pan];
